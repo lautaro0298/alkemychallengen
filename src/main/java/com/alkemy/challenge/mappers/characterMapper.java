@@ -8,6 +8,9 @@ import com.alkemy.challenge.DTO.characterDTO;
 import com.alkemy.challenge.entity.characterEntity;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author lautaro
@@ -30,5 +33,12 @@ public class characterMapper {
      dto.setHistory(entity.getHistory());
      dto.setWeight(entity.getWeight());
      return dto;
+    }
+    public List<characterDTO> characterentitylist2dto (List<characterEntity> lista){
+       List<characterDTO> resultado = new ArrayList<characterDTO>();
+        for (characterEntity elemento:lista) {
+            resultado.add(this.characterEntity2DTO(elemento));
+        }
+        return resultado;
     }
 }

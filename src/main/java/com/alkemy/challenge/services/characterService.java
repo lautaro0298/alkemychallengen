@@ -25,7 +25,7 @@ public class characterService {
     private characterRepository characterrepository;
     public List<characterDTO> getAllCharacters(){
         List<characterEntity> lista = characterrepository.findAll();
-        List<characterDTO> resultado = charactermapper.characterentitylist2listdto(lista);
+        List<characterDTO> resultado = charactermapper.characterentitylist2dto(lista);
         return resultado;
     }
     public characterDTO save(characterDTO characterdto){
