@@ -25,6 +25,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class characterController {
   @Autowired
 private characterService characterservice;
+@GetMapping("/{id}")
+public ResponseEntity<characterDTO> getById(Long id){
+    characterDTO character = characterservice.getById(id);
+    return ResponseEntity.status(HttpStatus.FOUND).body(character);
+}
 @GetMapping
 public ResponseEntity<List<characterDTO>> getAll(){
         List<characterDTO> character=this.characterservice.getAllCharacters();

@@ -35,4 +35,9 @@ public class characterService {
             return result;
             
     }
+    public characterDTO getById(Long id){
+     characterEntity entity =characterrepository.getById(id);
+            characterDTO result = charactermapper.characterEntity2DTO(entity);
+            return result;
+    }
 }
