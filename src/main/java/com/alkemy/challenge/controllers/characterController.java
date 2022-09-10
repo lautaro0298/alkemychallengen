@@ -36,4 +36,5 @@ public ResponseEntity<characterDTO> save (@RequestBody characterDTO character){
     characterDTO characterGuardado = characterservice.save(character);
     return ResponseEntity.status(HttpStatus.CREATED).body(characterGuardado);
 }
+
 }

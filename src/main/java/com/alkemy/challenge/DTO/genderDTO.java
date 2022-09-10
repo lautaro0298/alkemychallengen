@@ -14,6 +14,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class genderDTO {
+    private long id ;
       private String name;
 
     private String image;

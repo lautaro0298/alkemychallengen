@@ -30,7 +30,7 @@ import org.hibernate.annotations.GenericGenerator;
 public class movieEntity implements Serializable {
 @Id
 @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private long id ;
+    private int id ;
     private String title;
     private Date date ;
     private int classification;

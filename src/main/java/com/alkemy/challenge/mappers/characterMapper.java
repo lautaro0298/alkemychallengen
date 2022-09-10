@@ -19,6 +19,7 @@ import java.util.List;
 public class characterMapper {
     public characterEntity characterDTO2Entity(characterDTO characterdto){
         characterEntity characterentity = new characterEntity();
+        characterentity.setId(characterdto.getId());
         characterentity.setName(characterdto.getName());
         characterentity.setHistory(characterdto.getHistory());
         characterentity.setWeight(characterdto.getWeight());
