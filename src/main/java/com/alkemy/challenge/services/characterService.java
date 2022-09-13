@@ -40,4 +40,21 @@ public class characterService {
             characterDTO result = charactermapper.characterEntity2DTO(entity);
             return result;
     }
+    public void delete(Long id){
+        characterrepository.deleteById(id);
+    }
+    public characterDTO update(characterDTO newcharacter,Long id){
+     characterEntity entity= characterrepository.findById(id)
+      .map(oldcharacter -> {
+        return characterrepository.save(oldcharacter);
+      })
+      .orElseGet(() -> {
+        newcharacter.setId(id);
+        characterEntity entitynew =charactermapper.characterDTO2Entity(newcharacter);
+        characterEntity entitysave= characterrepository.save(entitynew);
+         
+            return entitysave;
+      });
+     return charactermapper.characterEntity2DTO(entity);
+    }
 }

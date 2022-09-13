@@ -15,7 +15,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class movieDTO {
-    private int id;
+    private Long id;
     private String title;
     private Date date ;
     private int classification;

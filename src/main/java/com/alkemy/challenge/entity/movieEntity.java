@@ -15,6 +15,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -25,17 +27,19 @@ import org.hibernate.annotations.GenericGenerator;
  *
  * @author lautaro
  */
+@SQLDelete(sql="UPDATE movieEntity SET delete = true WHERE id=?")
+@Where(clause="delete=false")
 @Data
 @Entity
 public class movieEntity implements Serializable {
 @Id
 @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int id ;
+    private Long id ;
     private String title;
     private Date date ;
     private int classification;
     private long weight;
-  
+    private boolean delete =Boolean.FALSE;
     private String image;
      @OneToOne
     private genderEntity Gender;
